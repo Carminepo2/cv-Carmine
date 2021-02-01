@@ -3,10 +3,14 @@ import { GrClose } from "react-icons/gr";
 
 import Sidebar from "./sidebar/Sidebar";
 import Head from "next/head";
+import PageTransition from "./PageTransitions"
 import { useState } from "react";
+import { useRouter } from 'next/router';
+
 
 export default function Layout({ children, title }) {
   const [showSidebar, setShowSidebar] = useState(false);
+  const router = useRouter()
 
   return (
     <>
@@ -25,10 +29,16 @@ export default function Layout({ children, title }) {
           </span>
         </div>
         <Sidebar page={title} showSidebar={showSidebar} />
-        <main className={`${showSidebar && "hide-main"} pt-5 pl-3`}>
-          <h1 className="display-1">{title}</h1>
-          {children}
-        </main>
+        
+        <PageTransition router={router}>
+          <main className={`${showSidebar && "hide-main"} pt-5 pl-3`}>
+            <h1 className="display-1">{title}</h1>
+            {children}
+          </main>
+        </PageTransition>
+        
+
+        
       </div>
       <style jsx>
         {`

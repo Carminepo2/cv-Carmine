@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function MenuItem({ children, title, url }) {
   return (
     <>
-      <Link href={url}>
+      <Link href={url} shallow={true}>
         <a className="link d-block px-4 py-3 my-3 rounded-pill">
           <span className="link-icon">{children}</span>
           {title}
