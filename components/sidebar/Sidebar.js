@@ -7,12 +7,13 @@ import { IoHandRight } from "react-icons/io5";
 
 import Link from "next/link";
 
-export default function Sidebar() {
+export default function Sidebar({ showSidebar }) {
+
   const ICON_SIZE = 25;
 
   return (
     <>
-      <aside className="d-flex justify-content-start align-items-center py-5 flex-column">
+      <aside className={`${showSidebar ? "show" : "hide"} d-flex justify-content-start align-items-center py-5 flex-column disable-scrollbar`}>
         <Link href="/">
           <a>
             <InfoCard />
@@ -42,16 +43,36 @@ export default function Sidebar() {
 
       <style jsx>
         {`
-          #sidebar-socials {
-          }
-          #sidebar-links {
-          }
           aside {
-            width: 30vw;
+            width: 35vw;
             height: 100vh;
             background: url("/gradient-2.png");
             background-repeat: no-repeat;
-            background-size: contain;
+            background-position: 60% 60%;
+            background-size: cover;
+            overflow-y: scroll;
+            white-space: nowrap;
+          }
+
+          @media only screen and (max-width: 991px) {
+            aside {
+              z-index: 99;
+            }
+            .show {
+              width: 400px !important;
+              opacity: 1;
+            }
+            .hide {
+              width: 0;
+              opacity: 0;
+            }
+          }
+
+          @media only screen and (max-width: 580px) {
+            .show {
+              width: !important;
+              opacity: 1;
+            }
           }
         `}
       </style>
