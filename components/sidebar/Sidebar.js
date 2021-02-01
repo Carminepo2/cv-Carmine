@@ -51,6 +51,7 @@ export default function Sidebar() {
             height: 100vh;
             background: url("/gradient-2.png");
             background-repeat: no-repeat;
+            background-position: top center;
             background-size: contain;
           }
         `}
