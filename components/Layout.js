@@ -1,35 +1,40 @@
-import { AiOutlineMenu } from "react-icons/ai"
+import { AiOutlineMenu } from "react-icons/ai";
+import { GrClose } from "react-icons/gr";
 
 import Sidebar from "./sidebar/Sidebar";
 import Head from "next/head";
 import { useState } from "react";
 
-
 export default function Layout({ children, title }) {
-  const [showSidebar, setShowSidebar] = useState(false)
-
+  const [showSidebar, setShowSidebar] = useState(false);
 
   return (
     <>
       <Head>
         <title>{`${title} | Carmine Porricelli`}</title>
       </Head>
-        <div id="wrapper" className="d-flex">
-          <Sidebar page={title} showSidebar={showSidebar} />
-          <main className="p-5">
-            <div id="menu-toggler" className="pl-1" onClick={() => {
-              setShowSidebar(!showSidebar)
-            }}>
-              <AiOutlineMenu size={35}/>
-            </div>
-            <h1 className="display-1">{title}</h1>
-            {children}
-          </main>
+
+      <div id="wrapper" className="d-flex justify-sidebar-center">
+        <div id="menu-toggler" className="pl-3 py-4">
+          <span
+            onClick={() => {
+              setShowSidebar(!showSidebar);
+            }}
+          >
+            {showSidebar ? <GrClose size={40} /> : <AiOutlineMenu size={40} />}
+          </span>
         </div>
-        <style jsx>
+        <Sidebar page={title} showSidebar={showSidebar} />
+        <main className={`${showSidebar && "hide-main"} pt-5 pl-3`}>
+          <h1 className="display-1">{title}</h1>
+          {children}
+        </main>
+      </div>
+      <style jsx>
         {`
           #menu-toggler {
             display: none;
+            width: 100%;
           }
           main {
             overflow-x: hidden;
@@ -38,11 +43,24 @@ export default function Layout({ children, title }) {
           @media only screen and (max-width: 991px) {
             #menu-toggler {
               display: block;
+              position: absolute !important;
+              z-index: 9999;
+            }
+          }
+          @media only screen and (max-width: 580px) {
+            main {
+              padding: 1.5rem !important;
+              transition: opacity 0.2s linear;
+            }
+            .hide-main {
+              opacity: 0.1;
+            }
+            .justify-sidebar-center {
+              justify-content: center;
             }
           }
         `}
       </style>
-      
     </>
   );
 }

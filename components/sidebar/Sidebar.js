@@ -12,7 +12,7 @@ export default function Sidebar({ showSidebar }) {
 
   return (
     <>
-      <aside className={`${showSidebar ? "show" : "hide"} d-flex justify-content-start align-items-center py-5 flex-column disable-scrollbar`}>
+      <aside className={`${showSidebar && "show-sidebar"} d-flex justify-content-start align-items-center py-5 flex-column disable-scrollbar`}>
         <Link href="/">
           <a>
             <InfoCard />
@@ -51,25 +51,29 @@ export default function Sidebar({ showSidebar }) {
             background-size: cover;
             overflow-y: scroll;
             white-space: nowrap;
+            user-select: none;
           }
 
           @media only screen and (max-width: 991px) {
             aside {
               z-index: 99;
-            }
-            .show {
-              width: 400px !important;
-              opacity: 1;
-            }
-            .hide {
               width: 0;
               opacity: 0;
+            }
+            .show-sidebar {
+              width: 400px !important;
+              opacity: 1;
             }
           }
 
           @media only screen and (max-width: 580px) {
+            aside {
+              z-index: 99;
+              position: fixed;
+              transition: opacity 0.4s linear;
+            }
             .show {
-              width: !important;
+              width: 400px !important;
               opacity: 1;
             }
           }
