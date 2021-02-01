@@ -1,4 +1,4 @@
-import { GrGithub, GrInstagram } from "react-icons/gr";
+import { GrGithub, GrLinkedin } from "react-icons/gr";
 
 export default function Socials() {
   const ICON_SIZE = 30;
@@ -11,11 +11,11 @@ export default function Socials() {
         </a>
       </span>
       <span className="p-2">
-        <a href="#" id="instagram-icon">
-          <GrInstagram size={ICON_SIZE} />
+        <a href="#" id="linkein-icon">
+          <GrLinkedin size={ICON_SIZE} />
         </a>
       </span>
-      <div>
+      <div className="mt-2">
         <small className="text-muted">@2021 Carmine Porricelli</small>
       </div>
     </>

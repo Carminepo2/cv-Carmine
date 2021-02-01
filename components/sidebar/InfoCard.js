@@ -1,7 +1,7 @@
 export default function InfoCard() {
   return (
     <>
-      <article id="info-card" className="rounded shadow-sm p-4 d-flex align-items-center">
+      <article id="info-card" className="rounded shadow-sm p-4 mt-2 d-flex align-items-center">
         <img className="rounded-circle mr-3" src="https://via.placeholder.com/60" alt="my face" />
         <div>
           <div id="name">Carmine Porricelli</div>
