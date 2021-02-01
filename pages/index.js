@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Sidebar from "../components/sidebar/Sidebar";
+import Layout from "../components/Layout";
 
 export default function Home() {
-  return <Sidebar />;
+  return <Layout title="Info"></Layout>;
 }

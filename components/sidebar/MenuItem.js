@@ -4,21 +4,29 @@ export default function MenuItem({ children, title, url }) {
   return (
     <>
       <Link href={url}>
-        <a className="link d-block py-4 px-5">
+        <a className="link d-block px-4 py-3 my-3 rounded-pill">
           <span className="link-icon">{children}</span>
           {title}
         </a>
       </Link>
+
       <style jsx>
         {`
           .link {
             width: 100%;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+          }
+          .link:hover {
+            background-color: rgba(0, 112, 243, 0.75);
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+            color: white;
+            cursor: pointer;
           }
           .link-icon {
             position: relative;
             padding-left: 2px;
-            margin-right: 80px;
+            margin-right: 40px;
             bottom: 2px;
           }
         `}

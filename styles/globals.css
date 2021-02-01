@@ -12,13 +12,15 @@ a {
 a:hover {
   text-decoration: none;
   color: initial;
-  cursor: initial;
 }
 
 * {
   box-sizing: border-box;
 }
 
+.rounded {
+  border-radius: 1.5rem !important;
+}
 .rounded-lg {
-  border-radius: 1rem !important;
+  border-radius: 2.5rem !important;
 }
