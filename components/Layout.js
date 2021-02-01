@@ -53,7 +53,7 @@ export default function Layout({ children, title }) {
               transition: opacity 0.2s linear;
             }
             .hide-main {
-              opacity: 0.1;
+              opacity: 0.04;
             }
             .justify-sidebar-center {
               justify-content: center;
