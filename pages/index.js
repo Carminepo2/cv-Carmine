@@ -5,7 +5,6 @@ import Layout from "../components/Layout";
 export default function Home() {
   return (
     <Layout title="Info">
-      <h1>Ciaosffasnjkdfabjkfsadbkjdfbjk</h1>
       <h1>Ciao</h1>
       <h1>Ciao</h1>
       <h1>Ciao</h1>

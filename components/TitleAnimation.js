@@ -8,14 +8,14 @@ export default function TitleAnimation({ children }) {
 
   const pageScrolled = () => {
     if (typeof window !== "undefined") {
+      console.log(children);
       if (window.scrollY < divRef.current.offsetHeight) {
         setScrollPosition((1 / divRef.current.offsetHeight) * window.scrollY);
-        console.log(scrollPosition);
       }
     }
   };
   useEffect(() => {
-    wrapperRef.current.setAttribute("style", `height:${divRef.current.offsetHeight}px;`);
+    wrapperRef.current.setAttribute("style", `height:${divRef.current.offsetHeight}px; display: inline-block`);
     window.addEventListener("scroll", pageScrolled);
     return () => {
       window.removeEventListener("scroll", pageScrolled);
@@ -28,8 +28,8 @@ export default function TitleAnimation({ children }) {
         ref={divRef}
         animate={
           scrollPosition < 0.652
-            ? { x: typeof window !== "undefined" ? (window.innerWidth / 2) * scrollPosition : 0, scale: 1 - 0.4 * scrollPosition }
-            : { x: (window.innerWidth / 2) * 0.652, y: -50, scale: 1 - 0.4 * 0.652 }
+            ? { x: typeof window !== "undefined" && divRef.current ? (window.innerWidth / 2) * scrollPosition : 0, scale: 1 - 0.4 * scrollPosition }
+            : { x: (window.innerWidth / 2) * 0.652, y: -100, scale: 1 - 0.6 * 0.652 }
         }
       >
         {children}

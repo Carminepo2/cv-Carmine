@@ -19,7 +19,6 @@ export default function MenuItem({ children, title, url }) {
           }
           .link:hover {
             background-color: rgba(0, 112, 243, 0.75);
-            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
             color: white;
             cursor: pointer;
           }
@@ -31,13 +30,18 @@ export default function MenuItem({ children, title, url }) {
           }
           @media only screen and (max-width: 350px) {
             .link {
-              font-size: 0.9rem;
-              margin-top: 8px !important;
-              margin-bottom: 8px !important;
-              padding: 10px 10px 8px 5px !important;
+              width: 95%;
+              padding-left: 10px !important;
+              margin-right: 0px !important;
+              padding-top:8px !important;
+              padding-bottom 8px !important;
+              margin-right: 0 !important; 
+
             }
             .link-icon {
-              left: 10px;
+              margin-right: 30px;
+              padding-left: 0;
+
             }
           }
         `}

@@ -21,7 +21,7 @@ export default function InfoCard() {
             background-color: rgba(248, 249, 250, 0.6);
           }
 
-          @media only screen and (max-width: 580px) {
+          @media only screen and (max-width: 380px) {
             article {
               padding: 15px 15px !important;
             }
