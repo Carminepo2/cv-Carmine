@@ -29,6 +29,17 @@ export default function MenuItem({ children, title, url }) {
             margin-right: 40px;
             bottom: 2px;
           }
+          @media only screen and (max-width: 350px) {
+            .link {
+              font-size: 0.9rem;
+              margin-top: 8px !important;
+              margin-bottom: 8px !important;
+              padding: 10px 10px 8px 5px !important;
+            }
+            .link-icon {
+              left: 10px;
+            }
+          }
         `}
       </style>
     </>

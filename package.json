@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
+    "framer": "^1.2.18",
     "framer-motion": "^3.2.2-rc.1",
+    "motion": "^5.0.0-beta26",
     "next": "10.0.6",
     "react": "17.0.1",
     "react-bootstrap": "^1.4.3",

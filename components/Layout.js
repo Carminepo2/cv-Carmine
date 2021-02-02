@@ -3,14 +3,14 @@ import { GrClose } from "react-icons/gr";
 
 import Sidebar from "./sidebar/Sidebar";
 import Head from "next/head";
-import PageTransition from "./PageTransitions"
+import PageTransition from "./PageTransition";
+import TitleAnimation from "./TitleAnimation";
 import { useState } from "react";
-import { useRouter } from 'next/router';
-
+import { useRouter } from "next/router";
 
 export default function Layout({ children, title }) {
   const [showSidebar, setShowSidebar] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <>
@@ -18,8 +18,8 @@ export default function Layout({ children, title }) {
         <title>{`${title} | Carmine Porricelli`}</title>
       </Head>
 
-      <div id="wrapper" className="d-flex justify-sidebar-center">
-        <div id="menu-toggler" className="pl-3 py-4">
+      <div id="wrapper" className="">
+        <div id="menu-toggler" className="pl-3 pt-3">
           <span
             onClick={() => {
               setShowSidebar(!showSidebar);
@@ -28,46 +28,70 @@ export default function Layout({ children, title }) {
             {showSidebar ? <GrClose size={40} /> : <AiOutlineMenu size={40} />}
           </span>
         </div>
-        <Sidebar page={title} showSidebar={showSidebar} />
-        
+        <section id="sidebar">
+          <Sidebar page={title} showSidebar={showSidebar} />
+        </section>
+
         <PageTransition router={router}>
-          <main className={`${showSidebar && "hide-main"} pt-5 pl-3`}>
-            <h1 className="display-1">{title}</h1>
+          <main className={`${showSidebar && "hide-main"}`}>
+            <TitleAnimation>
+              <h1 className="display-1">{title}</h1>
+            </TitleAnimation>
             {children}
           </main>
         </PageTransition>
-        
-
-        
       </div>
       <style jsx>
         {`
-          #menu-toggler {
-            display: none;
-            width: 100%;
+          #sidebar {
+            height: 100%;
+            padding-left: 100px;
+            padding-top: 50px;
+            width: 400px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
           }
           main {
-            overflow-x: hidden;
+            margin-left: 600px;
+            margin-top: 100px;
+          }
+          #menu-toggler {
+            display: none;
+          }
+
+          @media only screen and (max-width: 1200px) {
+            #sidebar {
+              padding-left: 20px;
+            }
+            main {
+              margin-left: 450px;
+            }
           }
 
           @media only screen and (max-width: 991px) {
+            #sidebar {
+              left: -450px;
+              ${showSidebar ? "left: 0 !important;" : ""}
+            }
+            main {
+              margin-top: 100px;
+              margin-left: 110px;
+              ${showSidebar ? "margin-left: 450px !important;" : ""}
+            }
             #menu-toggler {
               display: block;
-              position: absolute !important;
-              z-index: 9999;
+              position: absolute;
+              top: 20px;
+              left: 20px;
+              z-index: 99;
             }
           }
+
           @media only screen and (max-width: 580px) {
-            main {
-              padding: 1.5rem !important;
-              transition: opacity 0.2s linear;
-            }
-            .hide-main {
-              opacity: 0.04;
-            }
-            .justify-sidebar-center {
-              justify-content: center;
-            }
+          }
+          @media only screen and (max-width: 380px) {
           }
         `}
       </style>
