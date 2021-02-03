@@ -42,7 +42,7 @@ export default function Layout({ children, title }) {
         <div id="menu-toggler" className="pl-3 pt-3">
           <span onClick={changeSidebarState}>{showSidebar ? <GrClose size={40} /> : <AiOutlineMenu size={40} />}</span>
         </div>
-        <section id="sidebar">
+        <section id="sidebar" className="">
           <Sidebar page={title} showSidebar={showSidebar} />
         </section>
 
@@ -60,7 +60,6 @@ export default function Layout({ children, title }) {
           #sidebar {
             height: 100%;
             padding-left: 50px;
-            padding-top: 50px;
             width: 450px;
             position: fixed;
             z-index: 9 !important;
