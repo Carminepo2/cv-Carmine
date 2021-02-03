@@ -91,7 +91,7 @@ export default function Layout({ children, title }) {
           @media only screen and (max-width: 991px) {
             #sidebar {
               left: -450px;
-              ${showSidebar ? "left: 0 !important;" : ""}
+              ${showSidebar ? "left: 0px !important;" : ""}
             }
             main {
               margin-top: 100px;
@@ -109,7 +109,6 @@ export default function Layout({ children, title }) {
 
           @media only screen and (max-width: 580px) {
             #sidebar {
-              position: fixed;
               top: 0;
               bottom: 0;
               height: 100vh;
@@ -118,7 +117,7 @@ export default function Layout({ children, title }) {
               padding-left: 0;
               display: none;
               opacity: 0;
-              ${showSidebar ? "display: block !important; opacity: 1;" : ""}
+              ${showSidebar ? "display: block; opacity: 1;" : ""}
             }
             main {
               width: 100vw;
