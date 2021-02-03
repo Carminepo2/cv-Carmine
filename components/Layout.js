@@ -1,7 +1,7 @@
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
-
 import { AiOutlineMenu } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
+
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 
 import Sidebar from "./sidebar/Sidebar";
 import Head from "next/head";
@@ -15,21 +15,21 @@ export default function Layout({ children, title }) {
   const contentViewRef = useRef(null);
   const router = useRouter();
 
-  useEffect(() => {
-    console.log(contentViewRef.current);
-    enableBodyScroll(contentViewRef.current);
-  }, []);
+  const changeSidebarState = () => {
+    setShowSidebar(!showSidebar);
+  };
 
   useEffect(() => {
-    enableBodyScroll(contentViewRef.current);
-
+    // Dismisses sidebar when those events are fired
     if (showSidebar) {
-      disableBodyScroll(contentViewRef.current);
+      contentViewRef.current.addEventListener("mousedown", changeSidebarState);
+      contentViewRef.current.addEventListener("touchstart", changeSidebarState);
+      contentViewRef.current.addEventListener("dragstart", changeSidebarState);
+    } else {
+      contentViewRef.current.removeEventListener("mousedown", changeSidebarState);
+      contentViewRef.current.removeEventListener("touchstart", changeSidebarState);
+      contentViewRef.current.removeEventListener("dragstart", changeSidebarState);
     }
-
-    return () => {
-      clearAllBodyScrollLocks(contentViewRef.current);
-    };
   }, [showSidebar]);
 
   return (
@@ -40,24 +40,16 @@ export default function Layout({ children, title }) {
 
       <div id="wrapper" className="">
         <div id="menu-toggler" className="pl-3 pt-3">
-          <span
-            onClick={() => {
-              setShowSidebar(!showSidebar);
-            }}
-          >
-            {showSidebar ? <GrClose size={40} /> : <AiOutlineMenu size={40} />}
-          </span>
+          <span onClick={changeSidebarState}>{showSidebar ? <GrClose size={40} /> : <AiOutlineMenu size={40} />}</span>
         </div>
         <section id="sidebar">
           <Sidebar page={title} showSidebar={showSidebar} />
         </section>
 
         <PageTransition router={router}>
-          <main id="content" className={`${showSidebar && "hide-main"}`} ref={contentViewRef}>
-            <TitleAnimation contentViewRef={contentViewRef}>
-              <h1 style={{ position: "relative", zIndex: 9999 }} className="display-1">
-                {title}
-              </h1>
+          <main id="content" className={`${showSidebar && "block-main"}`} ref={contentViewRef}>
+            <TitleAnimation contentViewRef={contentViewRef} showSidebar={showSidebar}>
+              <h1 className="display-1">{title}</h1>
             </TitleAnimation>
             {children}
           </main>
@@ -69,9 +61,10 @@ export default function Layout({ children, title }) {
             height: 100%;
             padding-left: 50px;
             padding-top: 50px;
-            width: 400px;
+            width: 450px;
             position: fixed;
             z-index: 9 !important;
+            overflow: auto;
             top: 0;
             left: 0;
             transition: left 0.2s, opacity 0.2s linear;
@@ -79,9 +72,8 @@ export default function Layout({ children, title }) {
 
           main {
             padding-left: 500px;
-
+            overflow-x: hidden;
             margin-top: 90px;
-            overflow-y: scroll !important;
             transition: margin-left 0.2s, opacity 0.2s linear;
           }
           #menu-toggler {
@@ -105,7 +97,7 @@ export default function Layout({ children, title }) {
             main {
               margin-top: 100px;
               padding-left: 110px;
-              ${showSidebar ? "margin-left: 450px;opacity: 0.2; overflow: hidden !important;" : ""}
+              ${showSidebar ? "margin-left: 450px;opacity: 0.2;" : ""}
             }
             #menu-toggler {
               display: block;

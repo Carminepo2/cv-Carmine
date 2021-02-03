@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
-export default function TitleAnimation({ children }) {
+export default function TitleAnimation({ children, showSidebar }) {
   const [scrollPosition, setScrollPosition] = useState(null);
   const divRef = useRef(null);
 
