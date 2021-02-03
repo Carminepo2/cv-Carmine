@@ -7,8 +7,7 @@ export default function TitleAnimation({ children }) {
   const wrapperRef = useRef(null);
 
   const pageScrolled = () => {
-    if (typeof window !== "undefined") {
-      console.log(children);
+    if (typeof window !== "undefined" && divRef.current) {
       if (window.scrollY < divRef.current.offsetHeight) {
         setScrollPosition((1 / divRef.current.offsetHeight) * window.scrollY);
       }
@@ -28,7 +27,7 @@ export default function TitleAnimation({ children }) {
         ref={divRef}
         animate={
           scrollPosition < 0.652
-            ? { x: typeof window !== "undefined" && divRef.current ? (window.innerWidth / 2) * scrollPosition : 0, scale: 1 - 0.4 * scrollPosition }
+            ? { x: typeof window !== "undefined" && divRef.current && scrollPosition > 0.2 ? (window.innerWidth / 2) * scrollPosition : 0, scale: 1 - 0.4 * scrollPosition }
             : { x: (window.innerWidth / 2) * 0.652, y: -100, scale: 1 - 0.6 * 0.652 }
         }
       >

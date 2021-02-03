@@ -56,8 +56,10 @@ export default function Layout({ children, title }) {
             transition: left 0.2s, opacity 0.2s linear;
           }
           main {
-            margin-left: 550px;
-            margin-top: 100px;
+            margin-left: 450px;
+            padding-left: 50px;
+
+            margin-top: 80px;
             overflow-y: scroll !important;
             transition: margin-left 0.2s, opacity 0.2s linear;
           }
@@ -70,7 +72,8 @@ export default function Layout({ children, title }) {
               padding-left: 20px;
             }
             main {
-              margin-left: 450px;
+              margin-left: 400px;
+              padding-left: 50px;
             }
           }
 
@@ -81,7 +84,8 @@ export default function Layout({ children, title }) {
             }
             main {
               margin-top: 100px;
-              margin-left: 110px;
+              margin-left: 60px;
+              padding-left: 50px;
               ${showSidebar ? "margin-left: 450px;opacity: 0.2;" : ""}
             }
             #menu-toggler {

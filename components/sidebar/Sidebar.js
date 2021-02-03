@@ -58,11 +58,6 @@ export default function Sidebar({ showSidebar }) {
               width: 100%;
             }
           }
-          @media only screen and (max-width: 580px) {
-            .center-sidebar {
-              width: 100%;
-            }
-          }
         `}
       </style>
     </>

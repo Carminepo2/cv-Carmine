@@ -38,4 +38,12 @@ a:hover {
 .display-1 {
   user-select: none;
   display: inline-block !important;
+  font-size: 8rem;
+  padding-bottom: 40px;
+}
+
+@media only screen and (max-width: 380px) {
+  .display-1 {
+    font-size: 6rem;
+  }
 }
