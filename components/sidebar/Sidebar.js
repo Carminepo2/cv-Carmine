@@ -42,6 +42,7 @@ export default function Sidebar({ showSidebar }) {
           aside {
             width: 400px;
             height: 100%;
+            transition: width 0.4s, opacity 0.4s linear;
             background: url("/gradient-2.png");
             background-repeat: no-repeat;
             background-size: contain;

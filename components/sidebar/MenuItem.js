@@ -16,18 +16,24 @@ export default function MenuItem({ children, title, url }) {
             width: 100%;
             font-size: 1.1rem;
             font-weight: 600;
+            transition: background-color 0.2s, color 0.2s, transform 0.5s;
+
           }
-          .link:hover {
-            background-color: rgba(0, 112, 243, 0.75);
-            color: white;
-            cursor: pointer;
-          }
+     
           .link-icon {
             position: relative;
             padding-left: 2px;
             margin-right: 40px;
             bottom: 2px;
           }
+   
+          .link:hover {
+            background-color: rgba(0, 112, 243, 1);
+            color: white;
+            transform: scale(1.1);
+            cursor: pointer;
+          }
+          
           @media only screen and (max-width: 350px) {
             .link {
               width: 95%;

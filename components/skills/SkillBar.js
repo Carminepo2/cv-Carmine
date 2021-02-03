@@ -36,7 +36,7 @@ export default function SkillBarr() {
             overflow: hidden;
             width: 0%;
 
-            transition: width 1s linear;
+            transition: width 1.5s ease-in-out;
             height: 20px;
             background-color: #0ace6a;
           }
