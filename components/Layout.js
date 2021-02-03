@@ -99,8 +99,10 @@ export default function Layout({ children, title }) {
 
           @media only screen and (max-width: 580px) {
             #sidebar {
-              position: absolute;
+              position: fixed;
               top: 0;
+              bottom: 0;
+              height: 100vh;
               width: 100%;
               margin-right: 0;
               padding-left: 0;
@@ -114,7 +116,7 @@ export default function Layout({ children, title }) {
               margin-left: 0 !important;
               padding-left: 35px !important;
 
-              ${showSidebar ? "opacity: 0.05;" : ""}
+              ${showSidebar ? "opacity: 0.05;overflow: hidden !important;" : ""}
             }
             #menu-toggler {
               padding-top: 0 !important;
