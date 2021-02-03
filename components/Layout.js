@@ -59,7 +59,7 @@ export default function Layout({ children, title }) {
             margin-left: 450px;
             padding-left: 50px;
 
-            margin-top: 80px;
+            margin-top: 90px;
             overflow-y: scroll !important;
             transition: margin-left 0.2s, opacity 0.2s linear;
           }

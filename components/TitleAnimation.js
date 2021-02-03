@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 export default function TitleAnimation({ children }) {
   const [scrollPosition, setScrollPosition] = useState(null);
   const divRef = useRef(null);
-  const wrapperRef = useRef(null);
 
   const pageScrolled = () => {
     if (typeof window !== "undefined" && divRef.current) {
@@ -14,7 +13,6 @@ export default function TitleAnimation({ children }) {
     }
   };
   useEffect(() => {
-    wrapperRef.current.setAttribute("style", `height:${divRef.current.offsetHeight}px; display: inline-block`);
     window.addEventListener("scroll", pageScrolled);
     return () => {
       window.removeEventListener("scroll", pageScrolled);
@@ -22,17 +20,15 @@ export default function TitleAnimation({ children }) {
   }, []);
 
   return (
-    <div id="animation-wrapper" ref={wrapperRef}>
-      <motion.div
-        ref={divRef}
-        animate={
-          scrollPosition < 0.652
-            ? { x: typeof window !== "undefined" && divRef.current && scrollPosition > 0.2 ? (window.innerWidth / 2) * scrollPosition : 0, scale: 1 - 0.4 * scrollPosition }
-            : { x: (window.innerWidth / 2) * 0.652, y: -100, scale: 1 - 0.6 * 0.652 }
-        }
-      >
-        {children}
-      </motion.div>
-    </div>
+    <motion.div
+      ref={divRef}
+      animate={
+        scrollPosition < 0.652
+          ? { x: typeof window !== "undefined" && divRef.current && scrollPosition > 0.2 ? (window.innerWidth / 2) * scrollPosition : 0, scale: 1 - 0.4 * scrollPosition }
+          : { x: (window.innerWidth / 2) * 0.652, y: -100, scale: 1 - 0.6 * 0.652 }
+      }
+    >
+      {children}
+    </motion.div>
   );
 }
