@@ -46,6 +46,7 @@ export default function Sidebar({ showSidebar }) {
             background-repeat: no-repeat;
             background-size: contain;
             overflow-y: scroll;
+            background-size: 400px 600px;
             white-space: nowrap;
             user-select: none;
           }

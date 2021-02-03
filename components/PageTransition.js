@@ -10,10 +10,8 @@ export default function PageTransition({ router, children }) {
       variants={{
         pageInitial: {
           opacity: 0,
-          scale: 1.5,
         },
         pageAnimate: {
-          scale: 1,
           opacity: 1,
         },
       }}

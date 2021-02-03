@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "body-scroll-lock": "^3.1.5",
     "bootstrap": "^4.6.0",
     "framer": "^1.2.18",
     "framer-motion": "^3.2.2-rc.1",
