@@ -12,7 +12,7 @@ export default function Sidebar({ showSidebar }) {
 
   return (
     <>
-      <aside className={`d-flex justify-content-start align-items-center py-5 flex-column ${showSidebar && "center-sidebar"}`}>
+      <aside className={`d-flex justify-content-start align-items-center flex-column disable-scrollbar ${showSidebar && "center-sidebar"}`}>
         <Link href="/">
           <a>
             <InfoCard />
@@ -40,6 +40,7 @@ export default function Sidebar({ showSidebar }) {
       <style jsx>
         {`
           aside {
+            padding-top: 100px;
             width: 400px;
             height: 100%;
             transition: width 0.4s, opacity 0.4s linear;

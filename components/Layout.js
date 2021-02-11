@@ -42,7 +42,7 @@ export default function Layout({ children, title }) {
         <div id="menu-toggler" className="pl-3 pt-3">
           <span onClick={changeSidebarState}>{showSidebar ? <GrClose size={40} /> : <AiOutlineMenu size={40} />}</span>
         </div>
-        <section id="sidebar">
+        <section id="sidebar" className="">
           <Sidebar page={title} showSidebar={showSidebar} />
         </section>
 
@@ -60,7 +60,6 @@ export default function Layout({ children, title }) {
           #sidebar {
             height: 100%;
             padding-left: 50px;
-            padding-top: 50px;
             width: 450px;
             position: fixed;
             z-index: 9 !important;
@@ -93,7 +92,7 @@ export default function Layout({ children, title }) {
           @media only screen and (max-width: 991px) {
             #sidebar {
               left: -450px;
-              ${showSidebar ? "left: 0 !important;" : ""}
+              ${showSidebar ? "left: 0px !important;" : ""}
             }
             main {
               margin-top: 100px;
@@ -111,7 +110,6 @@ export default function Layout({ children, title }) {
 
           @media only screen and (max-width: 580px) {
             #sidebar {
-              position: fixed;
               top: 0;
               bottom: 0;
               height: 100vh;
@@ -120,7 +118,7 @@ export default function Layout({ children, title }) {
               padding-left: 0;
               display: none;
               opacity: 0;
-              ${showSidebar ? "display: block !important; opacity: 1;" : ""}
+              ${showSidebar ? "display: block; opacity: 1;" : ""}
             }
             main {
               width: 100vw;

@@ -1,5 +1,5 @@
 import Tilt from "react-parallax-tilt";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 export default function InfoCard() {
   const cardRef = useRef();
@@ -10,13 +10,9 @@ export default function InfoCard() {
     cardRef.current.classList.remove("info-card-hovered");
   };
 
-  useEffect(() => {
-    cardRef.current.classList.remove("info-card-hovered");
-  }, []);
-
   return (
     <>
-      <Tilt glareEnable={true} tiltMaxAngleX={15} tiltMaxAngleY={10} scale={1.1} onEnter={addShadow} onLeave={removeShadow}>
+      <Tilt glareEnable={true} tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.1} onEnter={addShadow} onLeave={removeShadow}>
         <article ref={cardRef} id="info-card" className="rounded shadow-sm p-4 mt-2 d-flex align-items-center">
           <img className="rounded-circle mr-3" src="https://via.placeholder.com/60" alt="my face" />
           <div>
