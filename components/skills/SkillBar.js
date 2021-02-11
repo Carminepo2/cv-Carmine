@@ -16,7 +16,6 @@ export default function SkillBar({ name, progress, delay_animation }) {
     progressValueRef.current.innerText = `${width_progress}%`;
     if (width_progress % 10 === 0) {
       progressRef.current.style.backgroundColor = COLOR_GRADIENT_BG_BAR[width_progress / 10];
-      progressRef.current.style.boxShadow = `${COLOR_GRADIENT_BG_BAR[width_progress / 10]} 0px 0px 100px -4px`
     }
   };
 
