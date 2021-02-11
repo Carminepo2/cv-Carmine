@@ -48,6 +48,12 @@ export default function SkillBar({ name, progress, delay_animation }) {
 
       <style jsx>
         {`
+          .skill-bar-wrapper {
+            transition: transform 0.25s ease-in;
+          }
+          .skill-bar-wrapper:hover {
+            transform: scale(1.01);
+          }
           .skill-bar {
             width: 90%;
             height: 20px;
@@ -60,19 +66,20 @@ export default function SkillBar({ name, progress, delay_animation }) {
 
           .progress-value {
             color: rgba(0, 0, 0, 0.15);
-            font-size: 3.5rem;
+            font-size: 3.9rem;
             font-weight: 100;
+            user-select: none;
             position: relative;
             top: 10px;
           }
 
           @keyframes shadow {
             from {
-              box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+              box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
               transform: scale(1);
             }
             to {
-              box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+              box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 10px 10px -5px;
               transform: scale(1.03);
             }
           }
@@ -98,6 +105,7 @@ export default function SkillBar({ name, progress, delay_animation }) {
             font-weight: 100;
             font-size: 1.8rem;
             margin-bottom: 0;
+
           }
           @media only screen and (max-width: 580px) {
             .progress-value-wrapper {
