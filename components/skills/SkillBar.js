@@ -48,12 +48,7 @@ export default function SkillBar({ name, progress, delay_animation }) {
 
       <style jsx>
         {`
-          .skill-bar-wrapper {
-            transition: transform 0.25s ease-in;
-          }
-          .skill-bar-wrapper:hover {
-            transform: scale(1.01);
-          }
+    
           .skill-bar {
             width: 90%;
             height: 20px;
