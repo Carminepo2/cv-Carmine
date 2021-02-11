@@ -74,6 +74,7 @@ export default function Layout({ children, title }) {
             padding-left: 500px;
             overflow-x: hidden;
             margin-top: 90px;
+            padding-bottom: 200px;
             transition: margin-left 0.2s, opacity 0.2s linear;
           }
           #menu-toggler {
