@@ -20,8 +20,9 @@ export default function SkillBar({ name, progress, delay_animation }) {
   };
 
   useEffect(() => {
+    intervalRef.current = setInterval(frame, 15);
+
     const timeout = setTimeout(() => {
-      intervalRef.current = setInterval(frame, 15);
       progressRef.current.classList.add("show-progress");
     }, delay_animation * 1000);
 
@@ -48,7 +49,6 @@ export default function SkillBar({ name, progress, delay_animation }) {
 
       <style jsx>
         {`
-    
           .skill-bar {
             width: 90%;
             height: 20px;
@@ -87,7 +87,6 @@ export default function SkillBar({ name, progress, delay_animation }) {
             overflow: hidden;
             width: 0%;
             transition: width 1.5s ease-out, background-color 0.75s, box-shadow 0.2s ease-in-out;
-            
 
             background-color: #dc2626;
             height: 20px;
@@ -100,7 +99,6 @@ export default function SkillBar({ name, progress, delay_animation }) {
             font-weight: 100;
             font-size: 1.8rem;
             margin-bottom: 0;
-
           }
           @media only screen and (max-width: 580px) {
             .progress-value-wrapper {
