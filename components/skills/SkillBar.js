@@ -3,19 +3,23 @@ import getRandomInt from "../../lib/utils";
 
 export default function SkillBar({ name, progress, delay_animation }) {
   const progressRef = useRef(null);
+  const leftBarRed = useRef(null);
   const intervalRef = useRef(null);
   const progressValueRef = useRef(null);
   const COLOR_GRADIENT_BG_BAR = ["#dc2626", "#ea5d20", "#f38721", "#f9ae31", "#fcd34d", "#dcd444", "#b9d444", "#93d44b", "#65d159", "#0ace6a"];
   let width_progress = 2;
 
   const frame = () => {
-    width_progress++;
-    if (width_progress >= progress) {
-      clearInterval(intervalRef.current);
-    }
-    progressValueRef.current.innerText = `${width_progress}%`;
-    if (width_progress % 10 === 0) {
-      progressRef.current.style.backgroundColor = COLOR_GRADIENT_BG_BAR[width_progress / 10];
+    if (progressValueRef.current) {
+      width_progress++;
+      if (width_progress >= progress) {
+        clearInterval(intervalRef.current);
+      }
+      progressValueRef.current.innerText = `${width_progress}%`;
+      if (width_progress % 10 === 0) {
+        leftBarRed.current.style.backgroundColor = COLOR_GRADIENT_BG_BAR[width_progress / 10];
+        progressRef.current.style.backgroundColor = COLOR_GRADIENT_BG_BAR[width_progress / 10];
+      }
     }
   };
 
@@ -43,15 +47,25 @@ export default function SkillBar({ name, progress, delay_animation }) {
           </div>
         </div>
         <div className="skill-bar rounded-pill">
+          <div className="left-progress" ref={leftBarRed}></div>
           <div className="skill-progress" ref={progressRef}></div>
         </div>
       </div>
 
       <style jsx>
         {`
+          .skill-progress,
+          .left-progress {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            background-color: #dc2626;
+          }
           .skill-bar {
             width: 90%;
             height: 20px;
+            position: relative;
             animation-name: shadow;
             animation-duration: 1s;
             animation-delay: ${delay_animation}s;
@@ -80,19 +94,22 @@ export default function SkillBar({ name, progress, delay_animation }) {
           }
 
           .skill-progress {
-            border-top-left-radius: 50rem !important;
-            border-bottom-left-radius: 50rem !important;
             display: inline-block;
-            position: absolute;
             overflow: hidden;
-            width: 0%;
-            transition: width 1.5s ease-out, background-color 0.75s, box-shadow 0.2s ease-in-out;
-
-            background-color: #dc2626;
-            height: 20px;
+            width: 100%;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1.5s ease-out, background-color 0.75s, box-shadow 0.2s ease-in-out;
+            left: 20px;
           }
           .show-progress {
-            width: ${progress}%;
+            transform: scaleX(${progress / 100});
+          }
+
+          .left-progress {
+            width: 21px;
+            border-radius: 50rem 0 0 50rem;
+            transition: background-color 0.75s;
           }
 
           label {

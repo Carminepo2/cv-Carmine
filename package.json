@@ -11,13 +11,21 @@
     "body-scroll-lock": "^3.1.5",
     "bootstrap": "^4.6.0",
     "framer": "^1.2.20",
-    "framer-motion": "^3.3.0",
+    "framer-motion": "^3.6.2",
     "motion": "^5.0.0-beta26",
     "next": "10.0.6",
-    "react": "17.0.1",
     "react-bootstrap": "^1.4.3",
-    "react-dom": "17.0.1",
+    "react-circular-progressbar": "^2.0.3",
     "react-icons": "^4.1.0",
     "react-parallax-tilt": "^1.4.75"
+  },
+  "devDependencies": {
+    "3": "^2.1.0",
+    "-": "0.0.1",
+    "@popperjs/core": "^2.8.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   }
 }
