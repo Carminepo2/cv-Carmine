@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import getRandomInt from "../../lib/utils";
 
 export default function SkillBar({ name, progress, delay_animation }) {
   const progressRef = useRef(null);
@@ -37,7 +36,7 @@ export default function SkillBar({ name, progress, delay_animation }) {
   }, []);
   return (
     <>
-      <div className="skill-bar-wrapper mb-2 pb-2">
+      <div className="skill-bar-wrapper mb-2">
         <div className="d-flex justify-content-between align-items-end">
           <label>{name}</label>
           <div className="progress-value-wrapper mr-5 pr-5">
@@ -112,11 +111,6 @@ export default function SkillBar({ name, progress, delay_animation }) {
             transition: background-color 0.75s;
           }
 
-          label {
-            font-weight: 100;
-            font-size: 1.8rem;
-            margin-bottom: 0;
-          }
           @media only screen and (max-width: 580px) {
             .progress-value-wrapper {
               margin-right: 25px !important;

@@ -17,7 +17,8 @@
     "react-bootstrap": "^1.4.3",
     "react-circular-progressbar": "^2.0.3",
     "react-icons": "^4.1.0",
-    "react-parallax-tilt": "^1.4.75"
+    "react-parallax-tilt": "^1.4.75",
+    "react-text-transition": "^1.3.0"
   },
   "devDependencies": {
     "3": "^2.1.0",
