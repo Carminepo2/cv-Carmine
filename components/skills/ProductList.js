@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import TextTransition from "react-text-transition";
 
 export default function ProductList() {
-  const iconsSets = ["programming-language", "frontend", "backend", "app-development", "database", "IDE"];
-  const TEXTS = ["Linguaggi Programmazione", "Web Frontend", "Web Backend", "iOS App Development", "Database & ORM", "IDEs"];
+  const iconsSets = ["programming-language", "frontend", "backend", "app-development", "database", "deploy", "IDE"];
+  const TEXTS = ["Linguaggi Programmazione", "Web Frontend", "Web Backend", "iOS App Development", "Database & ORM", "Deployment", "IDEs"];
   const [indexIconSets, setIndexIconSets] = useState(0);
 
   const changeHighlitedIcons = () => {

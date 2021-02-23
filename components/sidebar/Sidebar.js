@@ -24,7 +24,7 @@ export default function Sidebar({ showSidebar }) {
             <MenuItem title="Progetti" url="/projects">
               <BiCodeAlt size={ICON_SIZE} />
             </MenuItem>
-            <MenuItem title="Esperienze lavorative" url="/jobs">
+            <MenuItem title="Formazione" url="/jobs">
               <MdWork size={ICON_SIZE} />
             </MenuItem>
             <MenuItem title="Skills" url="/skills">

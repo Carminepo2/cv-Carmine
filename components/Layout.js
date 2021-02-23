@@ -107,6 +107,11 @@ export default function Layout({ children, title }) {
               z-index: 10;
             }
           }
+          @media only screen and (max-width: 680px) {
+            .display-1 {
+              font-size: 4.5rem;
+            }
+          }
 
           @media only screen and (max-width: 580px) {
             #sidebar {
@@ -131,9 +136,13 @@ export default function Layout({ children, title }) {
             #menu-toggler {
               padding-top: 0 !important;
             }
+            .display-1 {
+              margin-top: 15px;
+            }
           }
-          @media only screen and (max-width: 380px) {
-            #sidebar {
+          @media only screen and (max-width: 420px) {
+            .display-1 {
+              font-size: 4rem;
             }
           }
         `}
